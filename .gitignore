@@ -1,0 +1,25 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---- Virtual Environment ----
+.venv/
+venv/
+ENV/
+
+# ---- IDEs ----
+.idea/
+.vscode/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Streamlit ----
+.streamlit/
+
+# ---- Logs & temp ----
+*.log
+*.tmp
