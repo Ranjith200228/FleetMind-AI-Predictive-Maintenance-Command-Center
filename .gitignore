@@ -1,25 +1,28 @@
-# ---- Python ----
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# ---- Virtual Environment ----
+# Virtual environment
 .venv/
 venv/
-ENV/
+env/
 
-# ---- IDEs ----
+# Data artifacts
+data/processed/*.csv
+data/processed/*.parquet
+
+# Models (DO NOT PUSH LARGE FILES)
+models/*.joblib
+models/*.keras
+models/*.h5
+models/*.pt
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / IDE
+.DS_Store
 .idea/
 .vscode/
-
-# ---- OS ----
-.DS_Store
-Thumbs.db
-
-# ---- Streamlit ----
-.streamlit/
-
-# ---- Logs & temp ----
-*.log
-*.tmp
