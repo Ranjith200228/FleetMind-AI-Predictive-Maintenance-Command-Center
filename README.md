@@ -171,5 +171,3 @@ artifacts/
 - Automated retraining pipeline
 - Alerting & monitoring
 - Cloud observability integration
-
-MIT Lice
