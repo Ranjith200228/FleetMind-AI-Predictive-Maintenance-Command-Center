@@ -172,6 +172,4 @@ artifacts/
 - Alerting & monitoring
 - Cloud observability integration
 
-
-
-MIT License
+MIT Lice
