@@ -1,173 +1,167 @@
-<p align="center">
-  <h1 align="center">🚀 Fleet Reliability Predictive Maintenance</h1>
-  <h3 align="center">Production-grade ML system for predictive engine maintenance</h3>
-</p>
+# ⚡ Fleet Reliability Predictive Maintenance  
+### Tesla-Style ML System for Industrial Equipment Failure Prediction
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python">
-  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker">
-  <img src="https://img.shields.io/badge/AWS-App%20Runner-orange?logo=amazonaws">
-  <img src="https://img.shields.io/badge/AWS-S3-yellow?logo=amazonaws">
-  <img src="https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit">
-  <img src="https://img.shields.io/badge/ML-Predictive%20Maintenance-green">
-</p>
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange?logo=amazonaws)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-green)
 
 ---
 
-##  Live Demo
+## 🚀 Live Demo
 
- Deploying on AWS App Runner…  
-(Live URL will appear here after activation)
-
----
-
-##  Executive Summary
-
-This project is a production-style predictive maintenance system that forecasts engine failure risk and transforms raw telemetry into actionable maintenance decisions.
-
-It demonstrates the full lifecycle of modern ML engineering:
-
-data ingestion → feature engineering → model training → deployment → interactive decision dashboard → cloud architecture
-
-The system is designed for fleet operators to shift from reactive repairs to predictive reliability.
+👉 **[Portfolio Landing Page](https://ranjith200228.github.io/Fleet-Reliability-Predictive-Maintenance/)**  
+👉 **Dashboard (AWS Deployment – coming soon)**
 
 ---
 
-##  Dashboard Preview
+## 🧠 Recruiter Summary
 
-> Animated dashboard preview (GIF will be added here)
+This project simulates a **real-world predictive maintenance platform** used in autonomous fleets and industrial IoT systems.
 
-<p align="center">
-  <img src="docs/dashboard-preview.gif" width="90%">
-</p>
+The system predicts **Remaining Useful Life (RUL)** of equipment using machine learning and deep learning models, enabling proactive maintenance decisions that reduce downtime and operational cost.
+
+This mirrors production ML pipelines used at companies like Tesla, Amazon Robotics, and industrial AI platforms.
 
 ---
 
-##  System Architecture
-
-<p align="center">
-  <img src="docs/architecture-diagram.png" width="90%">
-</p>
+## 🏗 Architecture Overview
 
 ```
-Streamlit Dashboard (Docker Container)
-        ↓
-AWS App Runner
-        ↓
-IAM Role (Least Privilege)
-        ↓
-Amazon S3 (Model Artifacts)
+Sensor Data → Feature Engineering → ML Models → Decision Engine → Dashboard
+                    ↓
+              AWS Cloud Storage
+                    ↓
+              Streamlit App (Docker)
 ```
 
-This architecture mirrors real-world ML production deployments.
+📌 Architecture Diagram:  
+![Architecture](portfolio/architecture.png)
 
 ---
 
-##  Project Capabilities
+## 📊 Core Capabilities
 
-✔ Remaining Useful Life prediction  
-✔ Engine risk classification  
-✔ Maintenance urgency decisions  
-✔ Fleet health monitoring  
-✔ Interactive dashboard analytics  
-✔ Cloud-native deployment  
-
----
-
-##  Machine Learning Pipeline
-
-### Dataset
-NASA Turbofan Engine Degradation (FD001)
-
-### Models
-- Random Forest regression
-- LSTM neural network
-- Decision ensemble logic
-
-### Features
-- Sensor time-series
-- Engine cycle trends
-- Health degradation signals
-- Feature normalization
+✅ Predict Remaining Useful Life (RUL)  
+✅ Random Forest + LSTM hybrid modeling  
+✅ Failure decision thresholds  
+✅ Fleet-level maintenance planning  
+✅ Interactive dashboard visualization  
+✅ Cloud-ready container deployment  
+✅ Scalable ML pipeline structure  
 
 ---
 
-##  Cloud Deployment
+## 🧪 Machine Learning Stack
 
-The dashboard is containerized and deployed using AWS:
-
-- Docker containerization
-- AWS App Runner hosting
-- S3 artifact storage
-- IAM least-privilege access
-- No hardcoded credentials
-
-This mirrors industry production ML workflows.
-
----
-
-##  Tech Stack
-
-Python • Streamlit • scikit-learn • TensorFlow  
-Docker • AWS App Runner • AWS S3 • IAM  
-Pandas • NumPy • ML Ops principles
-
----
-
-##  Local Setup
-
-Clone:
-
-```bash
-git clone https://github.com/<your-username>/Fleet-Reliability-Predictive-Maintenance.git
-cd Fleet-Reliability-Predictive-Maintenance
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run dashboard:
-
-```bash
-streamlit run src/app/dashboard.py
-```
+| Component | Technology |
+|----------|-----------|
+Feature Engineering | NumPy / Pandas
+Classical ML | Random Forest
+Deep Learning | LSTM (TensorFlow/Keras)
+Model Fusion | Ensemble Meta Model
+Visualization | Streamlit Dashboard
+Deployment | Docker + AWS
+Storage | S3 artifact pipeline
 
 ---
 
 ## 📂 Project Structure
 
 ```
-src/
-  app/        dashboard UI + decision engine
-  models/     ML pipelines
-data/
-  raw/        NASA dataset
-artifacts/
-  models/     trained models (stored in S3)
+Fleet-Reliability-Predictive-Maintenance/
+│
+├── data/raw/                 → Sensor datasets
+├── src/                      → ML pipeline modules
+├── phase1_test.py            → Data validation
+├── phase2_test.py            → Model testing
+├── phase3_train.py           → Training pipeline
+├── phase4_decisions.py       → Maintenance logic
+├── phase5_fleet_report.py    → Fleet analytics
+├── train_seq_tf.py           → LSTM training
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-##  Skills Demonstrated
+## 📈 Dashboard Preview
 
-- Predictive maintenance analytics
-- Time-series modeling
-- ML deployment architecture
-- Docker containerization
-- Cloud ML infrastructure
-- Secure IAM design
-- Interactive dashboard engineering
-- Production ML workflows
+![Dashboard](portfolio/dashboard.gif)
+
+Interactive dashboard shows:
+
+• Predicted failure timelines  
+• Fleet health status  
+• Risk classification  
+• Maintenance priority scoring  
 
 ---
 
-##  Future Improvements
+## ☁ AWS Deployment (Production Design)
 
-- Real-time telemetry streaming
-- REST API endpoints
-- Automated retraining pipeline
-- Alerting & monitoring
-- Cloud observability integration
+```
+Docker Container → AWS ECR → AWS App Runner / ECS
+                       ↓
+                   S3 Model Store
+                       ↓
+                 Public Dashboard URL
+```
+
+This architecture mirrors enterprise ML system deployment patterns.
+
+---
+
+## 🔧 How to Run Locally
+
+```bash
+git clone https://github.com/Ranjith200228/Fleet-Reliability-Predictive-Maintenance.git
+cd Fleet-Reliability-Predictive-Maintenance
+
+pip install -r requirements.txt
+python phase3_train.py
+streamlit run src/app/dashboard.py
+```
+
+---
+
+## 🎯 Real-World Impact
+
+This system models how large fleets:
+
+• Prevent catastrophic equipment failure  
+• Reduce operational downtime  
+• Optimize maintenance scheduling  
+• Save millions in logistics cost  
+• Enable predictive AI infrastructure  
+
+This is the same class of problem solved by:
+
+Tesla • GE Aviation • Amazon Robotics • SpaceX • Industrial IoT platforms
+
+---
+
+## profile
+
+**Ranjith Kumar Maddirala**  
+Data Science & Machine Learning Engineer   
+
+🔗 LinkedIn: https://linkedin.com/in/ranjith-kumar-maddirala-5426801bb  
+🌐 Portfolio: https://ranjith-x-data-core.lovable.app
+
+
+---
+
+## 📌 Future Enhancements
+
+• Real-time streaming sensor ingestion  
+• Auto model retraining pipeline  
+• Fleet anomaly detection  
+• Kubernetes scaling  
+• Edge deployment simulation  
+
+---
+
+> Built with production ML engineering mindset ⚡
+
