@@ -18,6 +18,7 @@ models/*.joblib
 models/*.keras
 models/*.h5
 models/*.pt
+models/*.pth
 
 # Notebooks
 .ipynb_checkpoints/
