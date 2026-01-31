@@ -9,14 +9,14 @@
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 👉 **[Portfolio Landing Page](https://ranjith200228.github.io/Fleet-Reliability-Predictive-Maintenance/)**  
 👉 **Dashboard (AWS Deployment – coming soon)**
 
 ---
 
-## 🧠 Recruiter Summary
+##   Summary
 
 This project simulates a **real-world predictive maintenance platform** used in autonomous fleets and industrial IoT systems.
 
@@ -24,9 +24,11 @@ The system predicts **Remaining Useful Life (RUL)** of equipment using machine l
 
 This mirrors production ML pipelines used at companies like Tesla, Amazon Robotics, and industrial AI platforms.
 
+The system is designed for fleet operators to shift from reactive repairs to predictive reliability.
+
 ---
 
-## 🏗 Architecture Overview
+##  Architecture Overview
 
 ```
 Sensor Data → Feature Engineering → ML Models → Decision Engine → Dashboard
@@ -36,12 +38,12 @@ Sensor Data → Feature Engineering → ML Models → Decision Engine → Dashbo
               Streamlit App (Docker)
 ```
 
-📌 Architecture Diagram:  
+Architecture Diagram:  
 ![Architecture](portfolio/architecture.png)
 
 ---
 
-## 📊 Core Capabilities
+##  Core Capabilities
 
 ✅ Predict Remaining Useful Life (RUL)  
 ✅ Random Forest + LSTM hybrid modeling  
@@ -53,7 +55,7 @@ Sensor Data → Feature Engineering → ML Models → Decision Engine → Dashbo
 
 ---
 
-## 🧪 Machine Learning Stack
+##  Machine Learning Stack
 
 | Component | Technology |
 |----------|-----------|
@@ -86,7 +88,7 @@ Fleet-Reliability-Predictive-Maintenance/
 
 ---
 
-## 📈 Dashboard Preview
+##  Dashboard Preview
 
 ![Dashboard](portfolio/dashboard.gif)
 
@@ -99,7 +101,7 @@ Interactive dashboard shows:
 
 ---
 
-## ☁ AWS Deployment (Production Design)
+##  AWS Deployment (Production Design)
 
 ```
 Docker Container → AWS ECR → AWS App Runner / ECS
@@ -113,7 +115,7 @@ This architecture mirrors enterprise ML system deployment patterns.
 
 ---
 
-## 🔧 How to Run Locally
+##  How to Run Locally
 
 ```bash
 git clone https://github.com/Ranjith200228/Fleet-Reliability-Predictive-Maintenance.git
@@ -126,7 +128,7 @@ streamlit run src/app/dashboard.py
 
 ---
 
-## 🎯 Real-World Impact
+##  Real-World Impact
 
 This system models how large fleets:
 
@@ -147,8 +149,8 @@ Tesla • GE Aviation • Amazon Robotics • SpaceX • Industrial IoT platform
 **Ranjith Kumar Maddirala**  
 Data Science & Machine Learning Engineer   
 
-🔗 LinkedIn: https://linkedin.com/in/ranjith-kumar-maddirala-5426801bb  
-🌐 Portfolio: https://ranjith-x-data-core.lovable.app
+ LinkedIn: https://linkedin.com/in/ranjith-kumar-maddirala-5426801bb  
+ Portfolio: https://ranjith-x-data-core.lovable.app
 
 
 ---
@@ -161,7 +163,5 @@ Data Science & Machine Learning Engineer
 • Kubernetes scaling  
 • Edge deployment simulation  
 
----
 
-> Built with production ML engineering mindset ⚡
 
