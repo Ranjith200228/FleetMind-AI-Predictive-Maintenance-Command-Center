@@ -349,20 +349,4 @@ streamlit run src/app/dashboard.py
 ###🔐 Environment Setup
 Create a .env file:
 OPENAI_API_KEY=your_key
-
-### About the Engineer
-## Ranjith Kumar Maddirala
-
-Focused on designing intelligent systems that transform data into operational decisions.
-
-## Core Interests
-Machine Learning Systems
-
-Applied Artificial Intelligence
-
-Predictive Analytics
-
-Decision Intelligence Platforms
-
-Reliability Engineering
-
+---
