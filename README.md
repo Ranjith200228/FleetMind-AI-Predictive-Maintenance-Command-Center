@@ -130,7 +130,7 @@ Designed for executive visibility and decision support.
 
 ## 🏗️ Architecture Overview
 
-FleetMind was intentionally designed as a modular ML platform — not a monolithic dashboard.
+FleetMind was intentionally designed as a modular ML platform .
 
 ```mermaid
 flowchart LR
