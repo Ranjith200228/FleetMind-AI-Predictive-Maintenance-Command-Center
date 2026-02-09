@@ -130,8 +130,6 @@ Designed for executive visibility and decision support.
 
 ## 🏗️ Architecture Overview
 
-FleetMind was intentionally designed as a **modular ML platform** — built to turn **predictions → decisions → operational actions**.
-
 ### System Architecture (High Level)
 
 ```mermaid
@@ -153,7 +151,8 @@ flowchart LR
   H --> K[Executive Reporting Engine<br/>One-click PDF Ops Report]
 
 
-# 🧠 Architectural Philosophy
+
+### 🧠 Architectural Philosophy
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2501de19-a476-4644-a7d4-5cef93488ea4" />
 
 FleetMind is engineered using design principles commonly found in modern production machine learning platforms.
