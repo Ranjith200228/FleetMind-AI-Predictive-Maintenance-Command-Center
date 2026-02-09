@@ -1,4 +1,4 @@
-# 🚀 FleetMind — Intelligent Predictive Maintenance Platform
+# 🚀 FleetMind AI — Predictive Maintenance Command Center
 ### AI • Machine Learning • Decision Intelligence • Operational Systems
 
 ---
