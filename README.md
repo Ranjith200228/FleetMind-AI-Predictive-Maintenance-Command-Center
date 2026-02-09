@@ -349,4 +349,4 @@ streamlit run src/app/dashboard.py
 ###🔐 Environment Setup
 Create a .env file:
 OPENAI_API_KEY=your_key
----
+
