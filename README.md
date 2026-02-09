@@ -128,28 +128,29 @@ Designed for executive visibility and decision support.
 
 ---
 
-# 🧱 Architecture Overview
+## 🏗️ Architecture Overview
 
-FleetMind was intentionally designed as a **modular ML platform**, not a monolithic dashboard.
+FleetMind was intentionally designed as a **modular ML platform** — built to turn **predictions → decisions → operational actions**.
+
+### System Architecture (High Level)
 
 ```mermaid
 flowchart LR
+  A[Sensor Telemetry] --> B[Feature Engineering Pipeline]
+  B --> C[ML Failure Prediction Model]
 
-A[Sensor Telemetry] --> B[Feature Engineering Pipeline]
-B --> C[ML Failure Prediction Model]
+  C --> D[Risk Classification Engine]
+  D --> E[Priority Swimlanes]
 
-C --> D[Risk Classification Engine]
-D --> E[Priority Swimlanes]
+  C --> F[Ops Copilot Interface]
+  F --> G[LLM Reasoning Layer<br/>JSON Schema + Validation]
 
-C --> F[Ops Copilot Interface]
-F --> G[LLM Reasoning Layer]
+  E --> H[Operational Command Center]
+  G --> H
 
-E --> H[Operational Command Center]
-G --> H
-
-H --> I[Automated Maintenance Queue]
-H --> J[Failure Scenario Simulator]
-H --> K[Executive Reporting Engine]
+  H --> I[Automated Maintenance Queue]
+  H --> J[Failure Scenario Simulator]
+  H --> K[Executive Reporting Engine<br/>One-click PDF Ops Report]
 
 
 # 🧠 Architectural Philosophy
