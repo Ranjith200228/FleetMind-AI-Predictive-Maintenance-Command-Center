@@ -8,7 +8,7 @@ sdk_version: 1.39.0
 app_file: app.py
 pinned: true
 license: mit
-short_description: Predictive maintenance for turbofan fleets — LSTM + RAG + Agent
+short_description: Turbofan predictive maintenance — LSTM + RAG + Agent
 ---
 
 # FleetMind AI — Intelligent Predictive Maintenance
