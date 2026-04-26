@@ -1,0 +1,5 @@
+{
+  "backend": "openai",
+  "n_docs": 55,
+  "dim": 1536
+}

@@ -1,0 +1,82 @@
+{
+  "dataset": "C-MAPSS FD001",
+  "rul_cap": 125,
+  "window": 30,
+  "feature_cols": [
+    "sensor_2",
+    "sensor_3",
+    "sensor_4",
+    "sensor_7",
+    "sensor_8",
+    "sensor_9",
+    "sensor_11",
+    "sensor_12",
+    "sensor_13",
+    "sensor_14",
+    "sensor_15",
+    "sensor_17",
+    "sensor_20",
+    "sensor_21"
+  ],
+  "n_features": 14,
+  "published_baselines_fd001": [
+    {
+      "name": "MLP (Babu et al., 2016)",
+      "rmse": 37.56,
+      "score": 17972
+    },
+    {
+      "name": "SVR (Babu et al., 2016)",
+      "rmse": 20.96,
+      "score": 1381
+    },
+    {
+      "name": "CNN (Babu et al., 2016)",
+      "rmse": 18.45,
+      "score": 1287
+    },
+    {
+      "name": "LSTM (Zheng et al., 2017)",
+      "rmse": 16.14,
+      "score": 338
+    },
+    {
+      "name": "Deep LSTM (Wu et al., 2018)",
+      "rmse": 13.65,
+      "score": 280
+    },
+    {
+      "name": "BiLSTM (Wang et al., 2018)",
+      "rmse": 13.65,
+      "score": 295
+    },
+    {
+      "name": "AGCNN (Liu et al., 2020)",
+      "rmse": 12.42,
+      "score": 226
+    }
+  ],
+  "baseline_sources": [
+    "Babu, Zhao, Li. 'Deep CNN approach for estimation of RUL of machinery.' DASFAA 2016.",
+    "Zheng, Ristovski, Farahat, Gupta. 'Long short-term memory network for RUL estimation.' ICPHM 2017.",
+    "Wu, Yuan, Dong, Lin. 'Remaining useful life estimation with deep LSTM.' IEEE Trans. Ind. Inf. 2018.",
+    "Wang, Wu, Yu, Xu. 'Remaining useful life estimation based on BiLSTM.' ICMNE 2018.",
+    "Liu, Song, Pan, Zio. 'Attention-based gated CNN for RUL prediction.' RESS 2020."
+  ],
+  "random_forest": {
+    "rmse": 16.651239859330964,
+    "mae": 12.806884308704799,
+    "cmapss_score": 430.47633361746523,
+    "n": 100,
+    "train_seconds": 47.4
+  },
+  "lstm": {
+    "rmse": 14.310161772696501,
+    "mae": 11.05508538722992,
+    "cmapss_score": 381.30548807359827,
+    "n": 100,
+    "train_seconds": 770.4,
+    "params": 124737
+  },
+  "elapsed_seconds": 819.9
+}

@@ -1,0 +1,62 @@
+{"q": "What is the C-MAPSS dataset?", "answers": ["cmapss-overview"]}
+{"q": "Which organization released C-MAPSS?", "answers": ["cmapss-overview"]}
+{"q": "How many engines are in the FD001 train and test splits?", "answers": ["cmapss-subsets"]}
+{"q": "Which C-MAPSS subset has six operating conditions and two fault modes?", "answers": ["cmapss-subsets"]}
+{"q": "What is the format of a C-MAPSS train file?", "answers": ["cmapss-file-format"]}
+{"q": "Which file gives the ground-truth remaining life for test engines?", "answers": ["cmapss-file-format"]}
+{"q": "Define remaining useful life for an engine.", "answers": ["rul-definition"]}
+{"q": "Why do papers clip the RUL training label?", "answers": ["rul-piecewise"]}
+{"q": "What value of R_early is commonly used on FD001?", "answers": ["rul-piecewise", "rul-clip-choice"]}
+{"q": "List all 21 sensor channels in C-MAPSS.", "answers": ["sensor-list"]}
+{"q": "Which sensors carry no information on FD001?", "answers": ["constant-sensors-fd001"]}
+{"q": "How many informative sensors remain on FD001 after dropping constants?", "answers": ["constant-sensors-fd001"]}
+{"q": "What is the primary fault mode in FD001?", "answers": ["fault-mode-hpc"]}
+{"q": "Which sensors react most strongly to HPC degradation?", "answers": ["fault-mode-hpc", "sensor-trend-hpc"]}
+{"q": "What additional fault mode appears in FD003 and FD004?", "answers": ["fault-mode-fan"]}
+{"q": "What are the three operational settings in each row?", "answers": ["operating-conditions"]}
+{"q": "Describe the architecture of a two-spool turbofan engine.", "answers": ["turbofan-architecture"]}
+{"q": "Why does the C-MAPSS scoring function penalise late predictions more than early ones?", "answers": ["cmapss-scoring"]}
+{"q": "Give the formula for the C-MAPSS asymmetric score.", "answers": ["cmapss-scoring"]}
+{"q": "What metrics do C-MAPSS papers typically report?", "answers": ["metrics-reported"]}
+{"q": "What RMSE did Babu et al.'s CNN achieve on FD001?", "answers": ["baseline-babu-cnn"]}
+{"q": "What RMSE did Zheng et al.'s LSTM achieve on FD001?", "answers": ["baseline-zheng-lstm"]}
+{"q": "What is the strongest published result for a vanilla deep LSTM on FD001?", "answers": ["baseline-wu-deep-lstm"]}
+{"q": "What is AGCNN and how does it perform on FD001?", "answers": ["baseline-liu-agcnn"]}
+{"q": "Why is a sliding window of length 30 used as input?", "answers": ["windowing-strategy", "hyperparam-window"]}
+{"q": "How should sensor data be normalised on multi-condition subsets?", "answers": ["normalization"]}
+{"q": "When does the predictive signal become observable in an engine's life?", "answers": ["early-warning"]}
+{"q": "What is a Health Index?", "answers": ["health-index"]}
+{"q": "What does functional failure mean in C-MAPSS?", "answers": ["failure-threshold"]}
+{"q": "When should the Copilot recommend a borescope inspection?", "answers": ["maintenance-action-inspect"]}
+{"q": "When is a scheduled repair the right action?", "answers": ["maintenance-action-repair"]}
+{"q": "When should an engine module be fully replaced?", "answers": ["maintenance-action-replace"]}
+{"q": "How can prediction uncertainty be estimated?", "answers": ["uncertainty"]}
+{"q": "Why does a model trained on FD001 transfer poorly to FD002?", "answers": ["transfer-fd-subsets"]}
+{"q": "Describe the streaming RUL inference pattern.", "answers": ["streaming-inference"]}
+{"q": "What does the query_engine_history tool return?", "answers": ["engine-history-tool"]}
+{"q": "Why does the Copilot use retrieval-augmented generation?", "answers": ["rag-why"]}
+{"q": "What does the Streamlit Copilot UI look like?", "answers": ["streamlit-app"]}
+{"q": "Where is the project deployed?", "answers": ["hf-spaces-deploy"]}
+{"q": "What optimiser and learning rate schedule were used to train the LSTM?", "answers": ["training-setup"]}
+{"q": "Describe the random forest baseline configuration.", "answers": ["rf-baseline-setup"]}
+{"q": "Why might a model with low RMSE still report a poor C-MAPSS score?", "answers": ["metric-rmse-vs-score"]}
+{"q": "Describe the standard FD001 evaluation protocol.", "answers": ["evaluation-protocol"]}
+{"q": "Why do most FD001 papers report results on this subset first?", "answers": ["why-fd001-first"]}
+{"q": "Which sensor temperatures rise as the HPC degrades?", "answers": ["sensor-trend-hpc"]}
+{"q": "What RUL cap value is most frequently reported on FD001?", "answers": ["rul-clip-choice"]}
+{"q": "How does an asymmetric loss function help reduce the C-MAPSS score?", "answers": ["asymmetric-loss"]}
+{"q": "By how much do attention models typically improve FD001 RMSE?", "answers": ["attention-models"]}
+{"q": "Which embedding model is used for retrieval in this project?", "answers": ["embedding-model"]}
+{"q": "Why is FAISS IndexFlatIP appropriate for this corpus size?", "answers": ["faiss-index-type"]}
+{"q": "What retrieval metrics are reported on the eval set?", "answers": ["retrieval-metrics"]}
+{"q": "How are citations formatted in Copilot answers?", "answers": ["citation-format"]}
+{"q": "Are the 14 informative FD001 sensors statistically independent?", "answers": ["sensor-redundancy"]}
+{"q": "What is the range of engine lifetimes in the FD001 training set?", "answers": ["cycle-count-distribution"]}
+{"q": "How does the Copilot agent decide when to call a tool?", "answers": ["agent-loop"]}
+{"q": "How is a validation split chosen for training?", "answers": ["data-split-validation"]}
+{"q": "Why does this project not add hand-crafted health-index features?", "answers": ["why-not-more-features"]}
+{"q": "How much does the LSTM RMSE vary across random seeds?", "answers": ["reporting-variance"]}
+{"q": "When was the C-MAPSS dataset released?", "answers": ["cmapss-year"]}
+{"q": "What input tensor shape does the LSTM expect?", "answers": ["input-shape"]}
+{"q": "What is the effect of changing the input window length?", "answers": ["hyperparam-window"]}
+{"q": "Can a C-MAPSS-trained model be deployed directly to a real engine fleet?", "answers": ["production-considerations"]}

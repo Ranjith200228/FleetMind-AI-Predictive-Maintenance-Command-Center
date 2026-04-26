@@ -1,3 +1,16 @@
+---
+title: FleetMind AI
+emoji: 🚀
+colorFrom: red
+colorTo: gray
+sdk: streamlit
+sdk_version: 1.39.0
+app_file: app.py
+pinned: true
+license: mit
+short_description: Predictive maintenance for turbofan fleets — LSTM + RAG + Agent
+---
+
 # 🚀 FleetMind AI — Predictive Maintenance Command Center
 ### AI • Machine Learning • Decision Intelligence • Operational Systems
 

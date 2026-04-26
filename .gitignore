@@ -20,6 +20,20 @@ models/*.h5
 models/*.pt
 models/*.pth
 
+# …but ship the small artifacts the Streamlit app needs at runtime
+!models/lstm_fd001.keras
+!models/preprocess_fd001.joblib
+!models/lstm_fd003.keras
+!models/preprocess_fd003.joblib
+
+# Streamlit / runtime logs
+streamlit.log
+reports/train*.log
+reports/executive_smoke.pdf
+
+# Claude worktree internals
+.claude/
+
 # Notebooks
 .ipynb_checkpoints/
 
