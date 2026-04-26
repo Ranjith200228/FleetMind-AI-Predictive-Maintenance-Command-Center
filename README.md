@@ -21,6 +21,11 @@ dashboard that turns predictions into prioritized maintenance actions.
 Built as a portfolio project for ML engineering roles where the bar is *both*
 modeling rigor and the systems thinking to ship it.
 
+![FleetMind dashboard — Fleet Status view](docs/hero.png)
+*Mission-control dashboard. 100-engine status grid with per-cell sparklines;
+priority queue ranking REPLACE / REPAIR engines; subset toggle wired through
+KPI strip, status grid, engine detail, copilot, and PDF export.*
+
 ---
 
 ## Headline results — vs. published baselines
