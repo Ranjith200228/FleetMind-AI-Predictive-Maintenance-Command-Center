@@ -1,6 +1,5 @@
 ---
 title: FleetMind AI
-emoji: 🚀
 colorFrom: red
 colorTo: gray
 sdk: streamlit
@@ -84,7 +83,7 @@ projection) regenerated per-subset.
 
 After deploying to Hugging Face Spaces (see [`DEPLOY.md`](DEPLOY.md)):
 
-> https://huggingface.co/spaces/Ranjithmaddirala/fleetmind-ai
+> https://huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai
 
 Cold start ~8 s (TF model load), every subsequent request sub-second
 (`st.cache_resource` on retriever, scaler, LSTM, and agent).
