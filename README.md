@@ -16,13 +16,13 @@ short_description: Turbofan predictive maintenance — LSTM + RAG + Agent
 
 End-to-end ML system for turbofan engine prognostics on the NASA C-MAPSS benchmark.
 
-[![CI](https://github.com/Ranjith200228/fleetmind/actions/workflows/ci.yml/badge.svg)](https://github.com/Ranjith200228/fleetmind/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Live Demo](https://img.shields.io/badge/%F0%9F%A4%97-Live%20Demo-blue)](https://huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai)
 
 **Headline result:** Our 2-layer LSTM beats the AGCNN baseline (Liu 2020) on FD003 — RMSE **11.93** vs 12.51, C-MAPSS score **241** vs 264. Full benchmark table below.
 
-![FleetMind dashboard](docs/dashboard-hero.png)
+![FleetMind dashboard](docs/dashboard-<img width="1600" height="1100" alt="hero (1)" src="https://github.com/user-attachments/assets/b9eeac83-fff7-4bca-b1bc-4bd1b8185095" />
+)
 
 *Mission-control dashboard — 100-engine status grid with per-cell sparklines, priority queue ranking REPLACE/REPAIR engines, subset toggle wired through KPI strip, status grid, engine detail, copilot, and PDF export.*
 
