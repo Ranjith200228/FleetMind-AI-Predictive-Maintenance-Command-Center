@@ -1,3 +1,4 @@
+<!--
 ---
 title: FleetMind AI
 colorFrom: red
@@ -9,84 +10,56 @@ pinned: true
 license: mit
 short_description: Turbofan predictive maintenance — LSTM + RAG + Agent
 ---
+-->
 
-# FleetMind AI — Intelligent Predictive Maintenance
+# FleetMind
 
-A production-style ML platform for turbofan engine prognostics on the NASA
-C-MAPSS benchmark. End-to-end: deep-learning RUL prediction, retrieval-augmented
-domain QA, an LLM copilot with one real tool call, and a mission-control
-dashboard that turns predictions into prioritized maintenance actions.
+End-to-end ML system for turbofan engine prognostics on the NASA C-MAPSS benchmark.
 
-Built as a portfolio project for ML engineering roles where the bar is *both*
-modeling rigor and the systems thinking to ship it.
+[![CI](https://github.com/Ranjith200228/fleetmind/actions/workflows/ci.yml/badge.svg)](https://github.com/Ranjith200228/fleetmind/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/%F0%9F%A4%97-Live%20Demo-blue)](https://huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai)
 
-![FleetMind dashboard — Fleet Status view](docs/hero.png)
-*Mission-control dashboard. 100-engine status grid with per-cell sparklines;
-priority queue ranking REPLACE / REPAIR engines; subset toggle wired through
-KPI strip, status grid, engine detail, copilot, and PDF export.*
+**Headline result:** Our 2-layer LSTM beats the AGCNN baseline (Liu 2020) on FD003 — RMSE **11.93** vs 12.51, C-MAPSS score **241** vs 264. Full benchmark table below.
+
+![FleetMind dashboard](docs/dashboard-hero.png)
+
+*Mission-control dashboard — 100-engine status grid with per-cell sparklines, priority queue ranking REPLACE/REPAIR engines, subset toggle wired through KPI strip, status grid, engine detail, copilot, and PDF export.*
+
+Three integrated capabilities, each with numbers behind it:
+
+- **Predict** — LSTM regresses Remaining Useful Life from the last 30 cycles of 14–16 raw sensor channels.
+- **Explain** — RAG over 55 curated turbofan-prognostics chunks. Evaluated on a 62-pair Q/A set: **hit@1 = 0.92, hit@3 = 1.00, MRR@10 = 0.95**.
+- **Recommend** — `gpt-4o-mini` agent with one real tool call and strict citation enforcement (verified 6/6).
 
 ---
 
 ## Headline results — vs. published baselines
 
-Trained on two C-MAPSS subsets (FD001: 1 fault mode, FD003: 2 fault modes).
-Both runs use the same 2-layer LSTM (128 → 64 units, 124,737 params), MSE loss,
-piecewise-linear RUL clipping at 125 cycles. Evaluated on the held-out test set
-provided by NASA PCoE.
+Trained on two C-MAPSS subsets (FD001: 1 fault mode, FD003: 2 fault modes). Both runs use the same 2-layer LSTM (128 → 64 units, 124,737 params), MSE loss, piecewise-linear RUL clipping at 125 cycles. Evaluated on the held-out test set provided by NASA PCoE.
 
 | Method | FD001 RMSE | FD001 Score | FD003 RMSE | FD003 Score |
-|---|---|---|---|---|
-| MLP — *Babu et al. 2016* | 37.56 | 17,972 | 37.39 | 17,409 |
-| CNN — *Babu et al. 2016* | 18.45 | 1,287 | 19.82 | 1,596 |
-| LSTM — *Zheng et al. 2017* | 16.14 | 338 | 16.18 | 852 |
-| Deep LSTM — *Wu et al. 2018* | 13.65 | 280 | 16.18 | 1,370 |
-| BiLSTM — *Wang et al. 2018* | 13.65 | 295 | 13.74 | 317 |
-| AGCNN — *Liu et al. 2020* | 12.42 | 226 | 12.51 | 264 |
+| :--- | ---: | ---: | ---: | ---: |
+| MLP — Babu et al. 2016 | 37.56 | 17,972 | 37.39 | 17,409 |
+| CNN — Babu et al. 2016 | 18.45 | 1,287 | 19.82 | 1,596 |
+| LSTM — Zheng et al. 2017 | 16.14 | 338 | 16.18 | 852 |
+| Deep LSTM — Wu et al. 2018 | 13.65 | 280 | 16.18 | 1,370 |
+| BiLSTM — Wang et al. 2018 | 13.65 | 295 | 13.74 | 317 |
+| AGCNN — Liu et al. 2020 | 12.42 | 226 | 12.51 | 264 |
 | **FleetMind LSTM (ours)** | **14.31** | **381** | **11.93** | **241** |
 | FleetMind RF baseline | 16.65 | 431 | 16.09 | 647 |
 
-**Score** is the C-MAPSS asymmetric scoring function (Saxena & Goebel 2008) —
-exponential penalty, 1.5× heavier for late predictions than early ones, lower
-is better. Our LSTM beats the AGCNN (Liu 2020) baseline on FD003 across both
-metrics.
+*Score is the C-MAPSS asymmetric scoring function (Saxena & Goebel 2008) — exponential penalty, 1.5× heavier for late predictions than early ones; lower is better. Our LSTM beats the AGCNN (Liu 2020) baseline on FD003 across both metrics.*
 
-Full results, methodology, and per-engine prediction CSVs in
-[`docs/RESULTS.md`](docs/RESULTS.md).
-
----
-
-## What it does
-
-Three integrated capabilities, each with hard numbers behind it:
-
-1. **Predict** — LSTM regresses Remaining Useful Life from the last 30 cycles
-   of 14–16 raw sensor channels. Output: RUL in cycles + confidence band.
-2. **Explain** — RAG over 55 curated turbofan-prognostics chunks
-   (Saxena 2008, Heimes 2008, Zheng 2017, Wu 2018, Liu 2020, NASA PCoE README,
-   etc.) with FAISS IndexFlatIP and OpenAI `text-embedding-3-small`. Evaluated
-   on a 62-pair Q/A set: **hit@1 = 0.92, hit@3 = 1.00, MRR@10 = 0.95**.
-   TF-IDF fallback works without an API key (hit@1 = 0.87).
-3. **Recommend** — `gpt-4o-mini` agent grounded by retrieved citations and
-   one real tool: `query_engine_history(engine_id) → {sensor stats, LSTM
-   prediction, recommended action band}`. Strict citation enforcement: every
-   factual sentence carries `[doc_id]` markers traced back to the corpus.
-
-The mission-control dashboard ties them together: 100-engine status grid with
-inline SVG sparklines, transparent 3D turbofan with per-stage health colouring
-and corner HUD, glassmorphism Copilot panel with smart inline telemetry cards,
-and a one-click executive PDF (cover, exec summary, risk, schedule, cost
-projection) regenerated per-subset.
+Full methodology, ablations, and per-engine prediction CSVs in [`docs/RESULTS.md`](docs/RESULTS.md).
 
 ---
 
 ## Live demo
 
-After deploying to Hugging Face Spaces (see [`DEPLOY.md`](DEPLOY.md)):
+**[huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai](https://huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai)**
 
-> https://huggingface.co/spaces/Ranjithmaddirala/fleet-reliability-ai
-
-Cold start ~8 s (TF model load), every subsequent request sub-second
-(`st.cache_resource` on retriever, scaler, LSTM, and agent).
+Cold start ~8s (TF model load). Every subsequent request is sub-second — `@st.cache_resource` on retriever, scaler, LSTM, and agent.
 
 ---
 
@@ -119,6 +92,24 @@ Cold start ~8 s (TF model load), every subsequent request sub-second
 
 ---
 
+## Engineering decisions worth noting
+
+**Piecewise-linear RUL clipping at 125.** RUL is unobservable in the first ~50–125 cycles of any engine's life because no degradation signal has emerged yet. Clipping prevents the loss from being dominated by early-life regression to a meaningless target. Standard since Heimes 2008 / Zheng 2017; ablated to confirm.
+
+**MSE loss, not Huber.** Huber clamps the gradient on large errors, which is exactly what we don't want when the high-RUL tail is artificially flat-clipped. MSE converges to RMSE 14.31 on FD001; Huber stalls at val_rmse 42.
+
+**Per-subset feature selection.** FD001 has 7 constant-variance sensors (drop `{1, 5, 6, 10, 16, 18, 19}`, keep 14). FD003 introduces a second fault mode (Fan), which gives sensors 6 (P15 bypass pressure) and 10 (epr) real variance, so FD003 keeps 16. Loaders + scalers are per-subset; one global scaler loses ~3 RMSE on FD003.
+
+**FAISS `IndexFlatIP` with L2-normalized embeddings = cosine similarity.** Exact, deterministic, no index-build hyperparameters. 55 docs is small enough that an approximate index would be pure overhead.
+
+**One tool, not many.** The agent has exactly one function: `query_engine_history(engine_id)`. Everything else is RAG. Keeping the tool surface minimal makes the agent's decisions auditable — every numeric claim either comes from a tool result or from a cited chunk.
+
+**Strict citation enforcement.** System prompt requires `[doc_id]` markers on every factual sentence. Verified 6/6 on a smoke-test set; earlier draft had 3/6, fixed by tightening the prompt.
+
+**Cold start under 10s.** Every heavyweight object (LSTM, scaler, FAISS index, agent) is wrapped with `@st.cache_resource`. Fleet-wide RUL prediction is `@st.cache_data` keyed on the subset string, so toggling FD001 ↔ FD003 is a one-frame swap once warm.
+
+---
+
 ## Project structure
 
 ```
@@ -138,6 +129,7 @@ Cold start ~8 s (TF model load), every subsequent request sub-second
 │   ├── widgets.py                 # Smart engine telemetry cards for chat
 │   ├── streamlit_helpers.py       # Cached resource loaders, per-subset
 │   └── report.py                  # Executive PDF (reportlab)
+├── tests/                         # pytest suite (preprocess, metrics, rag, tools)
 ├── scripts/
 │   ├── train_and_eval.py          # python -m scripts.train_and_eval --subset FD003
 │   ├── build_index.py             # Build FAISS retrieval index from corpus
@@ -152,6 +144,7 @@ Cold start ~8 s (TF model load), every subsequent request sub-second
 ├── models/                        # Trained LSTM (.keras) + scaler (.joblib)
 ├── reports/                       # metrics.json + per-engine prediction CSVs
 ├── docs/RESULTS.md                # Detailed benchmark methodology
+├── .github/workflows/ci.yml       # Lint + test on push/PR
 ├── DEPLOY.md                      # Hugging Face Spaces deploy runbook
 └── requirements.txt
 ```
@@ -181,75 +174,30 @@ python -m scripts.eval_retrieval    # writes reports/retrieval_metrics.json
 
 # 5. Run the dashboard
 streamlit run app.py
+
+# 6. Run the test suite
+pytest tests/ -v
 ```
 
-The Copilot tab works without `OPENAI_API_KEY` (deterministic mock with real
-tool calls), but quality is materially better with the key set.
-
----
-
-## Engineering decisions worth noting
-
-- **Piecewise-linear RUL clipping at 125** — RUL is unobservable in the
-  first ~50–125 cycles of any engine's life because no degradation signal
-  has emerged yet. Clipping prevents the loss from being dominated by
-  early-life regression to a meaningless target. Standard since
-  Heimes 2008 / Zheng 2017; ablated to confirm.
-
-- **MSE loss, not Huber** — Huber clamps the gradient on large errors,
-  which is exactly what we *don't* want when the high-RUL tail is
-  artificially flat-clipped. MSE converges to RMSE 14.31 on FD001;
-  Huber stalls at val_rmse 42.
-
-- **Per-subset feature selection** — FD001 has 7 constant-variance sensors
-  (drop {1, 5, 6, 10, 16, 18, 19}, keep 14). FD003 introduces a second
-  fault mode (Fan), which gives sensors 6 (P15 bypass pressure) and 10
-  (epr) real variance, so FD003 keeps 16. Loaders + scalers are
-  per-subset; one global scaler would lose ~3 RMSE on FD003.
-
-- **FAISS IndexFlatIP with L2-normalized embeddings = cosine similarity**
-  — exact, deterministic, no index-build hyper-parameters. 55 docs is
-  small enough that an approximate index would be pure overhead.
-
-- **One tool, not many** — The agent has exactly one function:
-  `query_engine_history(engine_id)`. Everything else is RAG. Keeping the
-  tool surface minimal makes the agent's decisions auditable: every
-  numeric claim either comes from a tool result or from a cited chunk.
-
-- **Strict citation enforcement** — System prompt requires `[doc_id]`
-  markers on every factual sentence. Verified 6/6 on a smoke-test set;
-  earlier draft had 3/6, fixed by tightening the prompt.
-
-- **Cold start under 10 s** — Every heavyweight object (LSTM, scaler,
-  FAISS index, agent) is wrapped with `@st.cache_resource`. Fleet-wide
-  RUL prediction is `@st.cache_data` keyed on the subset string, so
-  toggling FD001 ↔ FD003 is a one-frame swap once warm.
+The Copilot tab works without `OPENAI_API_KEY` (deterministic mock with real tool calls), but quality is materially better with the key set.
 
 ---
 
 ## Tech stack
 
-`Python 3.11` · `TensorFlow 2.20` (LSTM) · `scikit-learn 1.8` (RF, scalers) ·
-`FAISS-CPU 1.8` (retrieval) · `OpenAI` SDK (`text-embedding-3-small` +
-`gpt-4o-mini`) · `Streamlit 1.39` · `Plotly 5.22` (3D turbofan) ·
-`reportlab 4.0` (executive PDF) · `pandas` · `numpy`.
+Python 3.11 · TensorFlow 2.20 (LSTM) · scikit-learn 1.8 (RF, scalers) · FAISS-CPU 1.8 (retrieval) · OpenAI SDK (`text-embedding-3-small` + `gpt-4o-mini`) · Streamlit 1.39 · Plotly 5.22 (3D turbofan) · reportlab 4.0 (executive PDF) · pandas · numpy · pytest.
 
 ---
 
 ## References
 
-- Saxena & Goebel. *Turbofan Engine Degradation Simulation Data Set.* NASA
-  PCoE, 2008.
-- Heimes. *Recurrent neural networks for remaining useful life estimation.*
-  PHM 2008.
-- Zheng et al. *Long short-term memory network for remaining useful life
-  estimation.* ICPHM 2017.
-- Wu et al. *Remaining useful life estimation with deep LSTM.* IEEE T. Ind.
-  Inf. 2018.
+- Saxena & Goebel. *Turbofan Engine Degradation Simulation Data Set.* NASA PCoE, 2008.
+- Heimes. *Recurrent neural networks for remaining useful life estimation.* PHM 2008.
+- Zheng et al. *Long short-term memory network for remaining useful life estimation.* ICPHM 2017.
+- Wu et al. *Remaining useful life estimation with deep LSTM.* IEEE T. Ind. Inf. 2018.
 - Wang et al. *Remaining useful life estimation based on BiLSTM.* ICMNE 2018.
 - Liu et al. *Attention-based gated CNN for RUL prediction.* RESS 2020.
-- Babu, Zhao, Li. *Deep CNN approach for estimation of RUL of machinery.*
-  DASFAA 2016.
+- Babu, Zhao, Li. *Deep CNN approach for estimation of RUL of machinery.* DASFAA 2016.
 
 ---
 
